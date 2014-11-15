@@ -12,6 +12,7 @@ gem "rails", "~> 4.2.0"
 gem "aws-sdk", "~> 1.5"
 
 group :development, :test do
+  gem "activerecord-import"
   gem "mime-types", "~> 1.16"
   gem "builder"
   gem "rubocop", :require => false
