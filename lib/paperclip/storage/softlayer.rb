@@ -115,6 +115,7 @@ module Paperclip
           "#{dynamic_fog_host_for_style(style)}/#{path(style)}"
         else
           if fog_credentials[:provider] == 'Softlayer'
+            puts "#{scheme}://#{host_name_for_directory}/#{path(style)}"
             "#{scheme}://#{host_name_for_directory}/#{path(style)}"
           else
             directory.files.new(:key => path(style)).public_url
@@ -172,11 +173,7 @@ module Paperclip
       end
 
       def host_name_for_directory
-        if @options[:fog_directory].to_s =~ Fog::AWS_BUCKET_SUBDOMAIN_RESTRICTON_REGEX
-          "#{@options[:fog_directory]}.s3.amazonaws.com"
-        else
-          "s3.amazonaws.com/#{@options[:fog_directory]}"
-        end
+          "#{@options[:fog_host]}"
       end
 
       def find_credentials(creds)
