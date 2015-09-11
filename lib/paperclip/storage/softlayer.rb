@@ -22,6 +22,7 @@ module Paperclip
     module Softlayer
       def self.extended base
         begin
+          puts "Entering the softlayer paperclip zone ..."
           require 'fog-softlayer'
         rescue LoadError => e
           e.message << " (You may need to install the fog-softlayer gem)"
