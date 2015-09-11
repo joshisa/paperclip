@@ -114,7 +114,7 @@ module Paperclip
         if @options[:fog_host]
           "#{dynamic_fog_host_for_style(style)}/#{path(style)}"
         else
-          if fog_credentials[:provider] == 'Softlayer'
+          if fog_credentials[:provider] == 'softlayer'
             puts "#{scheme}://#{host_name_for_directory}/#{path(style)}"
             "#{scheme}://#{host_name_for_directory}/#{path(style)}"
           else
